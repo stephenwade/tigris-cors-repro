@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    Open the developer console to see the output.
+  </body>
+  <script>
+    // @ts-check
+
+    async function main() {
+      console.log("Fetching pre-signed URL");
+      const response = await fetch("/new");
+      const data = await response.json();
+      console.log(data);
+
+      const payload = {
+        message: "Hello, world!",
+      };
+      console.log("Uploading");
+      try {
+        await fetch(data.url, {
+          method: "PUT",
+          body: JSON.stringify(payload),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        console.log("Upload complete");
+      } catch (error) {
+        console.error("Upload failed", error);
+      }
+    }
+
+    main();
+  </script>
+</html>
