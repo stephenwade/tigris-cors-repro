@@ -1,6 +1,6 @@
 # tigris-cors-repro
 
-I am having trouble uploading files from a browser to Tigris using a pre-signed URL. I am seeing the following error in the developer console:
+I am having trouble uploading files from a browser to Tigris using a pre-signed URL. Tigris responds to the OPTIONS request with 403 Forbidden, and I see the following error in the developer console:
 
 > Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.
 
